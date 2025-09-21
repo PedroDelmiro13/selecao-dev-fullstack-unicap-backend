@@ -17,6 +17,8 @@ def analyze(request: AnalyzeRequest):
         raise HTTPException(status_code=400, detail="Tarefa nao suportada")
 
     start = time.time()
+    
+    #metodo para processar os sentimentos, passa como parâmetro o texto enviado no body
     result = analyze_sentiment(request.input_text)
     elapsed = int((time.time() - start) * 1000)
 
